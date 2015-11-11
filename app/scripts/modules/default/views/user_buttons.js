@@ -16,8 +16,8 @@ define([
     events: {
       "click @ui.logout": function(e) {
         e.preventDefault();
-        //var apiUrl = BaseApp.config.apiUrl;
-        //window.location = apiUrl+'/logout?next='+window.location.href;
+        var apiUrl = BaseApp.config.apiUrl;
+        window.location = apiUrl+'/logout?next='+window.location.href;
       }
     }
 

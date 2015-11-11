@@ -15,8 +15,8 @@ function(
       this.app = options.app;
       this.headerView = new HeaderView();
       this.footerView = new FooterView();
-      //this.session = session;
-      //this.session.fetch();
+      this.session = session;
+      this.session.fetch();
     },
     onRoute: function() {
 

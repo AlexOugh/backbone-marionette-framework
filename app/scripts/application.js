@@ -17,12 +17,8 @@ function(
   _SampleModule
 ) {
 
-
-
-  /*var apiUrl = BaseApp.config.apiUrl;
-
-  // var authLoginUrl = apiUrl+'/auth/sgas-unifiedsso-openidconnect?next='+window.location.href+window.location.hash;
-  var authLoginUrl = apiUrl+'/auth/sgas-unifiedsso-openidconnect?next='+window.location.href;*/
+  var apiUrl = BaseApp.config.apiUrl;
+  var authLoginUrl = apiUrl+'/auth?next='+window.location.href;
 
   $.ajaxSetup({
 
@@ -43,13 +39,13 @@ function(
       403: function(jqXHR) {
         if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
           if (jqXHR.responseJSON.message == "authentication required") {
-            //window.location.href = authLoginUrl;
+            window.location.href = authLoginUrl;
           }
         }
       },
       401: function() {
-        //var apiUrl = BaseApp.config.apiUrl;
-        //window.location.href = authLoginUrl;
+        var apiUrl = BaseApp.config.apiUrl;
+        window.location.href = authLoginUrl;
       },
       503: function() {
         window.location.hash = "#unavailable";
